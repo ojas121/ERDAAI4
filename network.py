@@ -1,5 +1,5 @@
 import numpy as np
-
+# sorry about the lack of comments, im still figuring out what exactly is going on
 
 class Network:
     def __init__(self, size_input, size_output):
