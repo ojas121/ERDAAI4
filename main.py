@@ -13,15 +13,16 @@ images = []  # IMAGES HERE! PLEASE IN THE SAME ORDER AS IN THE GOOGLE DOC!!
 # all image inputs must be arrays with each element representing % in a single pixel (grayscale)
 aircraft = [0] * 10 + [1] * 7 + [2] * 9 + [3] * 6 + [4] * 4 + [5] + [4] + [6] + [4] + [2] + [4] * 2 + [7] + [5] * 2 + [
     6] + [8] * 2 + [9] * 3 + [10] * 3 + [11] * 2 + [12] * 3 + [13] + [14] * 3 + [8] * 2 + [15] * 5 + [16] * 3 + [
-    17] * 3 + [18] * 2+ [19] * 2 + [20] * 4 + [21] * 3 + [22] * 3 + [23] * 4 + [24] * 4 + [25]  # actual aircraft
+    17] * 3 + [18] * 2 + [19] * 2 + [20] * 4 + [21] * 3 + [22] * 3 + [23] * 4 + [24] * 4 + [25]  # actual aircraft
 print(len(aircraft))
 
-predictions = []
 for index, image in enumerate(images):
     out, hid = image_network.predict(image)
     expected_output = np.zeros(num_aircraft)
     expected_output[aircraft[index]] = 1
     image_network.learn(image, hid, out, expected_output)
+
+print(image_network.get_weights())
 
 planes = {
     '0': "B737",
