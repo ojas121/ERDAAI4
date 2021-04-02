@@ -87,3 +87,10 @@ class Network:
     def activate_prime(value_of_sigmoid):
         # Derivative of sigmoid depends purely on the output of the sigmoid, so we can just input the activated values
         return value_of_sigmoid * (1 - value_of_sigmoid)
+
+    def get_weights(self):
+        return self.transform_in_hid, self.transform_hid_out
+
+    def set_weights(self, in_hid, hid_out):
+        self.transform_in_hid = in_hid
+        self.transform_hid_out = hid_out
